@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@font-face {
+  font-family: 'Pixel';
+  src: url(./PressStart2P.ttf) format('truetype');
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Pixel', monospace;
+}
+
+.admin {
+  font-family: 'Inconsolata', monospace;
+}
+
+.any {
+  display: flex;
+}
+
+.not-visible{
+  opacity: 0;
+}
+
+.fullHeight_container {
+  height:100vh;
+}
+
+.form-card {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  border: 0;
+  .card-header {
+    background-color:#33b5e5!important;
+    color: #fff;
+    font-size:1.5rem;
+  }
+  input {
+    border:none;
+    border-bottom:1px solid #ced4da;
+    box-shadow: none!important;
+    border-radius:0;
+  }
+  .submit-btn {
+    border:2px solid #33b5e5!important;
+    color: #33b5e5!important;
+    border-radius:10rem;
+    font-size:.81rem;
+    text-transform: uppercase;
+    transition:background-color color .3s ease-in;
+    &:hover{
+      background-color: #33b5e5!important;
+      color:#fff!important;  
+    }
+  }
+  .switch-form{
+    color:#007bff;
+    text-decoration: none;  
+  }
+}
+
+.typed-text{
+  font-size:1.5rem;
+}
+.underscore{
+  font-weight: bold;
+}
+.sv-color{
+  color:#007bff;
+  font-weight: bold;
+}
+.btn-link{
+  // border:2px solid #000;
+  border:none;
+  padding:0.5rem 0.5rem;
+  border-radius:0;
+  color:#000;
+  text-align: left;
+  text-decoration: none!important;
+  &:hover{
+    border:none;
+    color:#fff;
+    background-color:#000;
+  }
+  &:focus, &:active{
+    border:none!important;
+    color:#fff;
+    background-color:#000!important;
+    box-shadow: none!important;
+  }
+}
+
+.selection-pointer{
+  position:absolute;
+  font-size:2rem;
+  left:-20px;
+}
+
+.bordered-panel{
+  border:3px solid #000;
+  border-radius:0;
+  border: 2px solid #000;
+  -webkit-box-shadow: 10px 10px #000;
+  box-shadow: 10px 10px #000;
+  .card-header{
+    background-color:#000;
+    color:#fff;
+    border-radius:0;
+    font-weight: bold;
+    padding:1rem 32px;
+    line-height: 1.5rem;
+  }
+  .card-body{
+    padding:2rem 32px;
+    line-height: 1.5rem;
+  }
+}
