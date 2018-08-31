@@ -5,6 +5,7 @@ export interface State {
     loginData:LoginData,
     user:UserData,
     communities: Array<Community>
+    quizzes: Array<QuizData>
 }
 
 export interface RegisterData {
@@ -30,6 +31,7 @@ export interface Community {
 }
 
 export interface QuizData {
+    id: string | number
     name: string,
     status: boolean,
     activeDate: string,

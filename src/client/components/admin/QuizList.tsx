@@ -1,25 +1,43 @@
-// import * as React from 'react';
-// import { Card, CardHeader, CardBody } from 'reactstrap';
-// import { QuizListProps } from '../../types/admin';
-// import { QuizItem } from './QuizItem';
+import * as React from 'react';
+import { Form, Card, CardHeader, CardBody, CardTitle, Button, Table} from 'reactstrap';
+import { QuizListProps } from '../../types/form';
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-// class QuizList extends React.Component<QuizListProps, any> {
-    
-//     private communityList() {
-//         return this.props.communities.map((quizItem, index) => {
-//             return <QuizItem
-//                      key={quizItem.id}
-//                      community={commmunityItem}
-//                      onClick={onClick}
-//                      />
-//         });
-//     }
+const QuizList: React.SFC<QuizListProps> = ({onEdit, onDelete, quizzes}) => {
+        let quizList = [];
+        console.log(quizzes);
+        if(quizzes){
+            quizList = quizzes.map((quiz, index) => {
+                return  <tr key={index}>
+                            <td>{index+1}</td>
+                            <td>{quiz.name}</td>
+                            <td>{quiz.activeDate}</td>
+                            <td>
+                                <Button onClick={()=> {onEdit(quiz.id)}} size="sm" color="primary">
+                                    <FontAwesomeIcon icon="edit"/>
+                                </Button>
+                                <Button className="ml-2" onClick={()=> {onDelete(quiz.id)}} size="sm" color="danger">
+                                    <FontAwesomeIcon icon="times"/>
+                                </Button>
+                            </td>
+                        </tr>
+            });
+        }
+        return (
+            <Table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    {quizList}
+                </tbody>
+            </Table>
+        );
+};
 
-//     render() {
-//         return(
-            
-//         );
-//     }
-// }
-
-// export default QuizList;
+export default QuizList;

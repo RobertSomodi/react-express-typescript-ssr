@@ -3,7 +3,9 @@ export  const loginData = {
     email: "",
     password: ""
 }
-                   
+
+export const quizzes: Array<types.QuizData> = [];
+
 export const user: types.UserData = {
     userData:{  firstname: "",
             lastname: "",
@@ -17,13 +19,14 @@ export const user: types.UserData = {
 export const communities: Array<types.Community> = []
 
 export const quizData: types.QuizData = {
+    id: null,
     name: "",
     status: false,
     activeDate: "",
     community: null,
     questions: [
         {   
-            id: 1,
+            id: 0,
             name: "Intrebare",
             answers: [
                 {name: 'Raspuns 1', id: 0},
@@ -35,6 +38,14 @@ export const quizData: types.QuizData = {
             correctAnswer: 2
         }
     ]
+}
+
+export const question: types.Question  = {
+    id: null,
+    name: "",
+    answers: [],
+    time: null,
+    correctAnswer: null
 }
 
 export const registerData = {

@@ -3,14 +3,18 @@ import { Form, Card, CardHeader, CardBody, CardTitle, Button, Table} from 'react
 import { QuestionListProps } from '../../types/form';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-const QuestionList: React.SFC<QuestionListProps> = ({onEdit, onSave, questions}) => {
+const QuestionList: React.SFC<QuestionListProps> = ({onEdit, onSave, onDelete, questions}) => {
         let questionlist = questions.map((question, index) => {
             return  <tr key={index}>
                         <td>{index+1}</td>
                         <td>{question.name}</td>
                         <td>{question.time}</td>
-                        <td><Button onClick={()=> {onEdit(question)}} size="sm" color="primary">
+                        <td>
+                            <Button onClick={()=> {onEdit(question)}} size="sm" color="primary">
                                 <FontAwesomeIcon icon="edit"/>
+                            </Button>
+                            <Button className="ml-2" onClick={()=> {onDelete(question.id)}} size="sm" color="danger">
+                                <FontAwesomeIcon icon="times"/>
                             </Button>
                         </td>
                     </tr>

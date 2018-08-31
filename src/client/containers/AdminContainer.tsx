@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import {bindActionCreators} from 'redux';
 import * as PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as _ from "lodash";
@@ -8,9 +8,10 @@ import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'reactstrap';
 
 import TypedText from '../components/common/TypedText';
+import QuizList from '../components/admin/QuizList';
 import {user} from '../reducers/initialState';
 import * as types from '../types/state';
-
+import * as quizActions from '../actions/quizActions';
 import {State} from '../types/state';
 
 
@@ -22,12 +23,27 @@ class Admin extends React.Component<any, any> {
 
   public constructor(props, context) {
     super(props, context);
+
+    this.onEdit = this.onEdit.bind(this);
+    this.onDelete = this.onDelete.bind(this);
   };
 
   componentWillMount(){
     if(this.props.user.userData.role == 'guest'){
       this.context.router.history.push('/');
     }
+  }
+
+  componentDidMount(){
+    this.props.actions.getQuizzes();
+  }
+
+  private onEdit(id) {
+
+  }
+
+  private onDelete(id) {
+
   }
 
   public render () {
@@ -41,6 +57,11 @@ class Admin extends React.Component<any, any> {
                 text="Hello, admin"
               />
               <Row className="mt-5">
+                <QuizList
+                  onEdit={this.onEdit}
+                  onDelete={this.onDelete}
+                  quizzes={this.props.quizzes}
+                />
               </Row>
             </Col>
           </Row>
@@ -50,10 +71,10 @@ class Admin extends React.Component<any, any> {
   }
 }
 
-const mapStateToProps = (state: State) => ({user: state.user});
+const mapStateToProps = (state: State) => ({user: state.user, quizzes: state.quizzes});
 const mapDispatchToProps = ( dispatch ) => {
     return {
-            actions: {}
+      actions: bindActionCreators(quizActions,dispatch)
             };
 };
 

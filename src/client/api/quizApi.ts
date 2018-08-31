@@ -13,5 +13,13 @@ class QuizApi {
         };
         return fetch(`http://localhost:3000/api/quiz/save`, requestOptions);
     }
+
+    static getQuizzes() {
+        const requestOptions = {
+            method: 'GET',
+            headers: {...authHeader() }
+        };
+        return fetch(`http://localhost:3000/api/quiz/getAll`, requestOptions);
+    }
 }
 export default QuizApi;

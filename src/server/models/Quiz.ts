@@ -8,21 +8,10 @@ export type QuizModel = mongoose.Document & types.Quiz;
 const quizSchema = new mongoose.Schema({
   name: String,
   activeDate: String,
-  community: mongoose.Schema.Types.ObjectId
-//   community: {type: mongoose.Schema.Types.ObjectId, ref: 'Community'},
-//   questions: [Question]
+  community: mongoose.Schema.Types.ObjectId,
+  questions: [Question]
   },  { timestamps: true });
 
-
-// quizSchema.pre("save", function save(next) {
-//     const quiz = this;
-
-//     Community.findOne({ id: quiz.community }, (err, community) => {
-//         if (err) { return next(err); }
-//         quiz.community = community
-//         next();
-//     });
-// });
 
 const Quiz = mongoose.model("Quiz", quizSchema);
 export default Quiz;

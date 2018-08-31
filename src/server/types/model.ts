@@ -4,26 +4,21 @@ export interface Community{
 
 export interface Quiz{
     name: string,
-    activeData: string,
+    activeDate: string,
     community: {type: number, ref: string}
     questions: Array<Question>,
 }
 
 export interface Question{
-    question: string,
+    name: string,
     time: number,
-    choices: Array<Choice>,
-    answerId: number
-}
-
-export interface Choice{
-    id: number,
-    choice: string
+    answers: Array<Answer>,
+    correctAnswers: number
 }
 
 export interface Answer{
-    questionId: number
-    choiceId: number
+    id: number
+    name: string
 }
 
 export interface Results{

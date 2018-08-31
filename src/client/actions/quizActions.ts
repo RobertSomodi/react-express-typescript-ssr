@@ -16,6 +16,10 @@ export function getCommunitiesSuccess(communities) {
     return {type: types.GET_COMMUNITIES_SUCCESS, communities}
 }
 
+export function getQuizzesSuccess(quizzes) {
+    return {type: types.GET_QUIZZES_SUCCESS, quizzes}
+}
+
 export function saveQuiz(quizData : type.QuizData) {
     return function (dispatch) {
         dispatch(beginAjaxCall());
@@ -36,6 +40,20 @@ export function getCommunities() {
         })
         .then(data => {
             dispatch(getCommunitiesSuccess(data));
+        })
+    }
+}
+
+export function getQuizzes() {
+    return function (dispatch) {
+        dispatch(beginAjaxCall());
+
+        return QuizApi.getQuizzes().
+        then(res => {
+            return res.json();
+        })
+        .then(data => {
+            dispatch(getQuizzesSuccess(data));
         })
     }
 }

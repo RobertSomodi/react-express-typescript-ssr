@@ -6,8 +6,10 @@ import RadioInput from '../../components/common/RadioInput';
 import DateInput from '../../components/common/DateInput';
 import SelectInput from '../../components/common/SelectInput';
 import QuestionList from './QuestionList';
+import * as initialState from '../../reducers/initialState';
+import * as _ from 'lodash';
 
-const QuizForm: React.SFC<QuizFormProps> = ({onChange, onSave, quizData, communities, onEdit, onSaveQuestion}) => {
+const QuizForm: React.SFC<QuizFormProps> = ({onChange, onSave, quizData, communities, onEdit, onSaveQuestion, onDelete}) => {
         let communityOptions = [];
         if(communities){
             communityOptions = communities.map(community => {
@@ -17,6 +19,7 @@ const QuizForm: React.SFC<QuizFormProps> = ({onChange, onSave, quizData, communi
                         }
             });
         }
+        
         return (
             <Card className="mt-3 text-center form-card">
             <CardHeader>Quiz</CardHeader>
@@ -47,9 +50,11 @@ const QuizForm: React.SFC<QuizFormProps> = ({onChange, onSave, quizData, communi
                         value={(quizData.community) ? quizData.community : "0"}
                         options={[...communityOptions, {label: "Selecteaza o comunitate", value: "0", disabled: true}]}
                     />
+                    <Button outline block onClick={()=>{onEdit(_.cloneDeep(initialState.question))}}>Adauga intrebare</Button>
                     <QuestionList
                         onEdit={onEdit}
                         onSave={onSaveQuestion}
+                        onDelete={onDelete}
                         questions={quizData.questions}
                     />
                     <Button className="submit-btn" outline size="lg" block onClick={onSave}>

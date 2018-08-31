@@ -6,7 +6,7 @@ export interface InputProps {
     name: string,
     label: string,
     placeholder: string,
-    value: string,
+    value: string | number,
     error?: string,
     onChange: Function
 }
@@ -71,12 +71,32 @@ export interface QuizFormProps {
     onSave: Function,
     onEdit: Function,
     onSaveQuestion: Function,
+    onDelete: Function,
     quizData: QuizData
     communities: Array<Community>
+}
+
+export interface QuizListProps {
+    onEdit: Function,
+    onDelete: Function,
+    quizzes: Array<QuizData>
 }
 
 export interface QuestionListProps {
     onEdit: Function,
     onSave: Function,
+    onDelete: Function,
     questions: Array<Question>
+}
+
+export interface QuestionFormModalProps {
+    onSave: Function,
+    onChange: Function,
+    onAnswerChange: Function,
+    addAnswer: Function,
+    removeAnswer: Function,
+    answer: string,
+    toggleModal: Function,
+    toggle: boolean,
+    question: Question
 }

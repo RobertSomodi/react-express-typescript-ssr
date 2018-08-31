@@ -4,11 +4,11 @@ import * as types from '../types/model';
 export type QuestionModel = mongoose.Document & types.Question;
 
 const questionSchema = new mongoose.Schema({
-  question: String,
+  name: String,
   time: Number,
-  choices: Array,
-  answerId: Number
+  answers: Array,
+  correctAnswer: Number
 }, { timestamps: true });
 
-const Question = mongoose.model("Question", questionSchema);
-export default Question;
+// const Question = mongoose.model("Question", questionSchema);
+export default questionSchema;

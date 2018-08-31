@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faEdit} from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTimes, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 import 'isomorphic-fetch';
 import './styles/index.scss';
@@ -18,6 +18,8 @@ import { sign } from '../../node_modules/@types/jsonwebtoken';
 import { loginSuccess } from './actions/userActions';
 
 library.add(faEdit);
+library.add(faTimes);
+library.add(faPlus);
 
 const element = document.getElementById('root');
 const preloadedState = window.__PRELOADED_STATE__;
